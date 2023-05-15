@@ -66,7 +66,7 @@
                 <h1 class="font-estetik my-4" style="font-size: 2.2rem;">Undangan Pernikahan</h1>
                 <div class="py-4">
                     <div class="cropper border border-3 border-light shadow mx-auto">
-                        <img src="assets/images/bg.jpeg" alt="bg">
+                        <img src="./assets/images/bg.jpeg" alt="bg">
                     </div>
                 </div>
                 <h1 class="font-estetik my-4" style="font-size: 3rem;">Wahyu & Riski</h1>
@@ -300,41 +300,42 @@
 
         <section class="m-0 p-0" id="ucapan">
             <div class="container">
-                <div class="card-body border rounded-4 shadow p-3">
-                    <h1 class="font-estetik text-center mb-3" style="font-size: 3rem;">Ucapan & Doa</h1>
-                    <input type="hidden" id="idbalasan">
-                    <div class="mb-1" id="balasan"></div>
-                    <div class="mb-3">
-                        <label for="formnama" class="form-label">Nama</label>
-                        <input type="text" class="form-control shadow-sm" id="formnama" placeholder="Isikan Nama Anda">
+                <form action="./json-generate.php" method="post">
+                    <div class="card-body border rounded-4 shadow p-3">
+                        <h1 class="font-estetik text-center mb-3" style="font-size: 3rem;">Ucapan & Doa</h1>
+                        <input type="hidden" id="idbalasan">
+                        <div class="mb-1" id="balasan"></div>
+                        <div class="mb-3">
+                            <label for="formnama" class="form-label">Nama</label>
+                            <input type="text" class="form-control shadow-sm" name="nama" id="formnama" placeholder="Isikan Nama Anda">
+                        </div>
+                        <div class="mb-3">
+                            <label for="hadiran" class="form-label" id="labelhadir">Kehadiran</label>
+                            <select class="form-select shadow-sm" name="kehadiran" aria-label="selectkehadiran" id="hadiran">
+                                <option value="0" selected>Konfirmasi Kehadiran</option>
+                                <option value="1">Hadir</option>
+                                <option value="2">Berhalangan</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formpesan" class="form-label">Ucapan & Doa</label>
+                            <textarea class="form-control shadow-sm" id="formpesan" rows="4" name="ucapan" placeholder="Tulis Ucapan & Doa"></textarea>
+                        </div>
+                        <div class="d-flex">
+                            <button class="flex-fill btn btn-danger btn-sm rounded-4 shadow m-1" style="display: none;" onclick="resetForm()" id="batal">
+                                Batal<i class="fa-solid fa-xmark ms-1"></i>
+                            </button>
+                            <button class="flex-fill btn btn-primary btn-sm rounded-4 shadow m-1" type="submit" style="display: none;" name="kirimbalasan" id="kirimbalasan">
+                                Kirim<i class="fa-solid fa-paper-plane ms-1"></i>
+                            </button>
+                        </div>
+                        <div class="d-grid mb-2">
+                            <button class="btn btn-primary btn-sm rounded-4 shadow" type="submit" name="kirim" id="kirim">
+                                Kirim<i class="fa-solid fa-paper-plane ms-1"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="hadiran" class="form-label" id="labelhadir">Kehadiran</label>
-                        <select class="form-select shadow-sm" aria-label="selectkehadiran" id="hadiran">
-                            <option value="0" selected>Konfirmasi Kehadiran</option>
-                            <option value="1">Hadir</option>
-                            <option value="2">Berhalangan</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="formpesan" class="form-label">Ucapan & Doa</label>
-                        <textarea class="form-control shadow-sm" id="formpesan" rows="4" placeholder="Tulis Ucapan & Doa"></textarea>
-                    </div>
-                    <div class="d-flex">
-                        <button class="flex-fill btn btn-danger btn-sm rounded-4 shadow m-1" style="display: none;" onclick="resetForm()" id="batal">
-                            Batal<i class="fa-solid fa-xmark ms-1"></i>
-                        </button>
-                        <button class="flex-fill btn btn-primary btn-sm rounded-4 shadow m-1" style="display: none;" onclick="kirimBalasan()" id="kirimbalasan">
-                            Kirim<i class="fa-solid fa-paper-plane ms-1"></i>
-                        </button>
-                    </div>
-                    <div class="d-grid mb-2">
-                        <button class="btn btn-primary btn-sm rounded-4 shadow" onclick="kirim()" id="kirim">
-                            Kirim<i class="fa-solid fa-paper-plane ms-1"></i>
-                        </button>
-                    </div>
-                </div>
-
+                </form>
                 <div class="rounded-4 mt-4 mb-2">
                     <div id="daftarucapan"></div>
                 </div>
@@ -416,6 +417,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha256-6o/gIaSs5PZ4b+zEGPcLZY/C3ALRNuj+XGq2tipG1dA=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha256-pQBbLkFHcP1cy0C8IhoSdxlm0CtcH5yJ2ki9jjgR03c=" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
