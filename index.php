@@ -413,7 +413,7 @@
             </div>
         </div>
     </div>
-
+    <script src="./js/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha256-6o/gIaSs5PZ4b+zEGPcLZY/C3ALRNuj+XGq2tipG1dA=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha256-pQBbLkFHcP1cy0C8IhoSdxlm0CtcH5yJ2ki9jjgR03c=" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>

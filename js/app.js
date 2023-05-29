@@ -73,7 +73,6 @@ const buka = async () => {
     document.getElementById('tombol-musik').style.display = 'block';
     audio.play();
     AOS.init();
-    await login();
     timer();
 };
 
@@ -119,6 +118,14 @@ const renderCard = (data) => {
     </div>`;
     return DIV;
 };
+
+const KIRIM_BTN = document.getElementById('kirim');
+KIRIM_BTN.addEventListener('click', (e) => {
+    e.preventDefault();
+    $.getJSON('message.json', (data) => {
+        console.log(data);
+    })
+});
 
 const renderLoading = (num) => {
     let hasil = '';
