@@ -1,3 +1,14 @@
+function titleCase(str) {
+    var splitStr = str.toLowerCase().split(' ');
+    for (var i = 0; i < splitStr.length; i++) {
+        // You do not need to check if i is larger than splitStr length, as your for does that for you
+        // Assign it back to the array
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+    }
+    // Directly return the joined string
+    return splitStr.join(' '); 
+}
+
 const audio = (() => {
     var instance = undefined;
 
@@ -108,13 +119,16 @@ const renderCard = (data) => {
     <div class="card-body bg-light shadow p-3 m-0 rounded-4" id="">
         <div class="d-flex flex-wrap justify-content-between align-items-center">
             <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
-                <strong class="me-1">${data.nama}</strong>
+                <strong class="me-1">${titleCase(data.nama)} &nbsp; ${data.kehadiran > 1 ? '<small class="kehadiran permission">Berhalangan</small>' : '<small class="kehadiran present">Hadir</small>'}</strong>
             </p>
             <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${data.date} &nbsp; ${data.time}</small>
         </div>
         <hr class="text-dark my-1">
         <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${data.ucapan}</p>
-        <button style="font-size: 0.8rem;" onclick="balasan(this)" data-uuid="" class="btn btn-sm btn-outline-dark rounded-4 py-0">Balas</button>
+        <div class="formbalasan">
+        
+        </div>
+        <button style="font-size: 0.8rem;" id="balas" uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-4 py-0">Balas</button>
     </div>`;
     return DIV;
 };
@@ -153,6 +167,25 @@ KIRIM_BTN.addEventListener('click', (e) => {
             })
         }
     })
+});
+
+function clearFormBalas(){
+    $.each($('.formbalasan'), function(i,v) {
+        $(v).find('#balasan').remove();
+    });
+}
+
+$(document).on('click', '#balas', function(e) {
+    let formPlace = $(e.target).siblings('.formbalasan');
+    let typingBalasan = formPlace.find('#balasan').val();
+    if(typingBalasan == undefined) {
+        clearFormBalas();
+        formPlace.append(`
+            <textarea class="form-control mb-2" id="balasan" rows="4" name="balasan"></textarea>
+        `);
+    }else{
+        $('send! and remove form balas in this element!');
+    }
 });
 
 const renderLoading = (num) => {

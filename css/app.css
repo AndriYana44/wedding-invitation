@@ -71,3 +71,24 @@ body {
 .card-body {
     overflow-wrap: break-word !important;
 }
+
+.kehadiran {
+    padding: 6px;
+    font-weight: 100;
+    border-radius: 12px;
+    border: none;
+    font-size: 11px;
+    margin-left: 8px;
+}
+
+.kehadiran.permission {
+    background-color: #ffc107;
+}
+.kehadiran.present {
+    background-color: #28a745;
+    color: #FFF;
+}
+
+#balasan {
+    background-color: #FFF;
+}
