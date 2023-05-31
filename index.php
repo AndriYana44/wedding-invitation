@@ -337,7 +337,9 @@
                     </div>
                 </form>
                 <div class="rounded-4 mt-4 mb-2">
-                    <div id="daftarucapan"></div>
+                    <div id="daftarucapan">
+                        
+                    </div>
                 </div>
 
                 <nav class="d-flex justify-content-center">

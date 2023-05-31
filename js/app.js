@@ -108,22 +108,50 @@ const renderCard = (data) => {
     <div class="card-body bg-light shadow p-3 m-0 rounded-4" id="">
         <div class="d-flex flex-wrap justify-content-between align-items-center">
             <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
-                <strong class="me-1"></strong>
+                <strong class="me-1">${data.nama}</strong>
             </p>
-            <small class="text-dark m-0 p-0" style="font-size: 0.75rem;"></small>
+            <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${data.date} &nbsp; ${data.time}</small>
         </div>
         <hr class="text-dark my-1">
-        <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line"></p>
+        <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${data.ucapan}</p>
         <button style="font-size: 0.8rem;" onclick="balasan(this)" data-uuid="" class="btn btn-sm btn-outline-dark rounded-4 py-0">Balas</button>
     </div>`;
     return DIV;
 };
 
+// masukan semua ucapan
+$.getJSON('message.json', (data) => {
+    $.each(data, function(i,v) {
+        let ucapan = renderCard(v);
+        $('#daftarucapan').append(ucapan);
+    });
+})
+
 const KIRIM_BTN = document.getElementById('kirim');
 KIRIM_BTN.addEventListener('click', (e) => {
     e.preventDefault();
-    $.getJSON('message.json', (data) => {
-        console.log(data);
+    const _parentEl = $(e.target).closest('.card-body');
+
+    // get value list
+    let name = _parentEl.find('input[name=nama]').val();
+    let kehadiran = _parentEl.find('select[name=kehadiran]').find(':selected').val();
+    let ucapan = _parentEl.find('textarea[name=ucapan]').val();
+
+    $.ajax({
+        type: "POST",
+        url: "json-generate.php",
+        data: {
+            nama: name, 
+            kehadiran: kehadiran, 
+            ucapan: ucapan
+        },
+        success: function(res) {
+            $.getJSON('message.json', (data) => {
+                let datalast = data[data.length - 1];
+                let ucapan = renderCard(datalast);
+                $('#daftarucapan').prepend(ucapan);
+            })
+        }
     })
 });
 
