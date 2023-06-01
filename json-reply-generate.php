@@ -1,6 +1,7 @@
 <?php
     // set timezone
     date_default_timezone_set('Asia/Jakarta');
+
     function generateRandomString($length = 10) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -11,35 +12,34 @@
         return $randomString;
     }
 
-    // mendapatkan data dari form
     $uuid = generateRandomString(36);
-    $name = $_POST['nama'];
-    $present = $_POST['kehadiran'];
-    $message = $_POST['ucapan'];
+    $uuid_pesan = $_POST['uuid_pesan'];
+    $replyerName = $_POST['replyerName'];
+    $replyMessage = $_POST['replyMessage'];
 
     // conversi data menjadi array
-    $obj = [
+    $array = [
         'uuid' => $uuid,
-        'nama' => $name,
-        'kehadiran' => $present,
-        'ucapan' => $message,
+        'uuid_pesan' => $uuid_pesan,
+        'nama' => $replyerName,
+        'pesan' => $replyMessage,
         'date' => date('Y-m-d'),
         'time' => date('H:i:s')
     ];
 
     // cek file json apakah ada nilai
-    $jsondata = file_get_contents('./json/message.json');
+    $jsondata = file_get_contents('./json/reply.json');
     $data = json_decode($jsondata, true);
 
     if(isset($data)) {
         // jika ada nilai
-        array_push($data, $obj);
+        array_push($data, $array);
         $json = json_encode($data);
-        $generate = file_put_contents('./json/message.json', $json);
+        $generate = file_put_contents('./json/reply.json', $json);
     }else {
         // jika tidak ada nilai
-        $arr[] = (object)$obj;
-        $generate = file_put_contents('./json/message.json', json_encode($arr));
-    }   
-    
-    
+        $obj[] = (object)$array;
+        $generate = file_put_contents('./json/reply.json', json_encode($obj));
+    } 
+
+    echo json_encode($array);

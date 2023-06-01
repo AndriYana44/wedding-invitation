@@ -9,6 +9,42 @@ function titleCase(str) {
     return splitStr.join(' '); 
 }
 
+function currentDate() {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+    
+    today = yyyy + '-' + mm + '-' + dd;
+    return today;
+}
+
+function currentTime() {
+    let dateTime = new Date();
+    let hour = String(dateTime.getHours());
+    let minute = String(dateTime.getMinutes());
+    let second = String(dateTime.getSeconds());
+    
+    let time = hour + ':' + minute + ':' + second;
+    return time;
+}
+
+const getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+    return false;
+};
+
 const audio = (() => {
     var instance = undefined;
 
@@ -113,33 +149,115 @@ const resetForm = () => {
 };
 
 const renderCard = (data) => {
+    let to  = getUrlParameter('to');
     const DIV = document.createElement('div');
-    DIV.classList.add('mb-3');
-    DIV.innerHTML = `
-    <div class="card-body bg-light shadow p-3 m-0 rounded-4" id="">
-        <div class="d-flex flex-wrap justify-content-between align-items-center">
-            <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
-                <strong class="me-1">${titleCase(data.nama)} &nbsp; ${data.kehadiran > 1 ? '<small class="kehadiran permission">Berhalangan</small>' : '<small class="kehadiran present">Hadir</small>'}</strong>
-            </p>
-            <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${data.date} &nbsp; ${data.time}</small>
-        </div>
-        <hr class="text-dark my-1">
-        <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${data.ucapan}</p>
-        <div class="formbalasan">
-        
-        </div>
-        <button style="font-size: 0.8rem;" id="balas" uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-4 py-0">Balas</button>
+    DIV.classList.add('mb-3', 'list-ucapan');
+    DIV.setAttribute('uuid', data.uuid);
+    let node = `
+    <div class="card-body bg-light shadow p-3 m-0 rounded-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-center">
+    <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
+    <strong class="me-1">${titleCase(data.nama)} &nbsp; ${data.kehadiran > 1 ? '<small class="kehadiran permission">Berhalangan</small>' : '<small class="kehadiran present">Hadir</small>'}</strong>
+    </p>
+    <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${data.date} &nbsp; ${data.time}</small>
+    </div>
+    <hr class="text-dark my-1">
+    <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${data.ucapan}</p>
+    <div class="formbalasan">
     </div>`;
+    node += 
+    `<button style="font-size: 0.8rem;" id="balas" uuid="${data.uuid}" class="btn btn-sm btn-outline-dark rounded-4 py-0">Balas</button>`;
+    if(to == 'owner') {
+        node += `
+        <button style="font-size: 0.8rem;" uuid="${data.uuid}" class="btn btn-sm btn-outline-danger hapus_pesan rounded-4 py-0">Hapus</button>
+        </div>`;
+    }
+    DIV.innerHTML = node;
     return DIV;
 };
 
+const renderCardReply = data => {
+    let to  = getUrlParameter('to');
+    const DIV = document.createElement('div');
+    DIV.classList.add('my-3');
+    let node = `
+        <div class="card-body bg-light shadow p-3 m-0 rounded-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <p class="text-dark text-truncate m-0 p-0 sender" style="font-size: 0.95rem;">`;
+    if(to == 'owner') {
+        node += `<span id="remove_replyed" uuid="${data.uuid}" class="mr-3 hapus_replyed">Hapus</span>`;
+    } 
+    node += 
+        `<strong class="me-1">${titleCase(data.nama)}</strong> 
+        </p>
+        <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${data.date} &nbsp; ${data.time}</small>
+        </div>
+        <hr class="text-dark my-1">
+        <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${data.pesan}</p>
+        </div>`;
+
+    DIV.innerHTML = node;
+    return DIV;
+}
+
+
+setInterval(function() {
+    const UUID_ARRAY = [];
+    $.getJSON('./json/message.json', data => {
+        $.each(data, (i, v) => {
+            UUID_ARRAY.push(v.uuid);
+        });        
+        
+        $.each($('.list-ucapan'), (i, v) => {
+            const index = UUID_ARRAY.indexOf($(v).attr('uuid'));
+            if(index > -1) {
+                UUID_ARRAY.splice(index, 1);
+            }
+        });
+        
+        if(UUID_ARRAY.length > 0) {
+            $.each(data, (i, d) => {
+                $.each(UUID_ARRAY, (i, v) => {
+                    if(d.uuid == v) {
+                        let ucapan = renderCard(d);
+                        $(ucapan).hide().prependTo('#daftarucapan').slideDown(500);
+                    }
+                });
+            });
+        }
+    });
+}, 300);
+
 // masukan semua ucapan
-$.getJSON('message.json', (data) => {
+$.getJSON('json/message.json', (data) => {
     $.each(data, function(i,v) {
         let ucapan = renderCard(v);
         $('#daftarucapan').append(ucapan);
     });
-})
+});
+    
+// masukan semua balasan
+$.getJSON('./json/reply.json', (data) => {
+    $.each($('.list-ucapan'), function(i,vE) {
+        $.each(data, function(i,vD) {
+            if($(vE).attr('uuid') == vD.uuid_pesan) {
+                let reply = renderCardReply(vD);
+                $(vE).find('.formbalasan').append(reply);
+            }
+        });
+    });
+});
+
+
+$(document).on('click', '.hapus_pesan', function(e) {
+    let uuid = $(this).attr('uuid');
+    console.log(uuid);
+});
+
+$(document).on('click', '.hapus_replyed', function(e) {
+    let uuid = $(this).attr('uuid');
+    console.log(uuid);
+});
 
 const KIRIM_BTN = document.getElementById('kirim');
 KIRIM_BTN.addEventListener('click', (e) => {
@@ -160,10 +278,15 @@ KIRIM_BTN.addEventListener('click', (e) => {
             ucapan: ucapan
         },
         success: function(res) {
-            $.getJSON('message.json', (data) => {
+            $.getJSON('json/message.json', (data) => {
                 let datalast = data[data.length - 1];
                 let ucapan = renderCard(datalast);
                 $('#daftarucapan').prepend(ucapan);
+
+                // clear value list
+                _parentEl.find('input[name=nama]').val('');
+                _parentEl.find('select[name=kehadiran]').find(':selected').removeAttr('selected');
+                _parentEl.find('textarea[name=ucapan]').val('');
             })
         }
     })
@@ -171,20 +294,63 @@ KIRIM_BTN.addEventListener('click', (e) => {
 
 function clearFormBalas(){
     $.each($('.formbalasan'), function(i,v) {
-        $(v).find('#balasan').remove();
+        $(v).find('#formbalasan').slideUp(300, function() { $(this).remove(); });
     });
 }
 
 $(document).on('click', '#balas', function(e) {
     let formPlace = $(e.target).siblings('.formbalasan');
     let typingBalasan = formPlace.find('#balasan').val();
-    if(typingBalasan == undefined) {
+    if(typingBalasan == undefined || typingBalasan == '' || typingBalasan == null) {
         clearFormBalas();
-        formPlace.append(`
-            <textarea class="form-control mb-2" id="balasan" rows="4" name="balasan"></textarea>
-        `);
+        const _balasanEl = `
+            <div id="formbalasan">
+                <div class="mb-3">
+                    <input type="text" class="form-control shadow-sm" name="naama" id="namabalasan" placeholder="Isikan Nama Anda" required>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" id="balasan" rows="4" name="balasan" required></textarea>
+                </div>
+            </div>`;
+        $(_balasanEl).hide().appendTo(formPlace).slideDown(800);
+
+        $.each($(document).find('.formbalasan'), function(i,v) {
+            $(v).siblings('#balas').html('Balas');
+        });
+        $(this).html('Kirim');
     }else{
-        $('send! and remove form balas in this element!');
+        let uuid_pesan = $(e.target).attr('uuid');
+        let replyerName = formPlace.find('#namabalasan').val();
+        let replyMessage = formPlace.find('#balasan').val();
+        clearFormBalas();
+
+        $.ajax({
+            type: 'POST',
+            url: 'json-reply-generate.php',
+            data: {
+                uuid_pesan: uuid_pesan,
+                replyerName: replyerName,
+                replyMessage: replyMessage
+            },
+            success: function(res) {
+                let response = $.parseJSON(res);
+                let replyElement = `
+                <div class="my-3">
+                    <div class="card-body bg-light shadow p-3 m-0 rounded-4">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center">
+                            <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
+                                <span id="remove_replyed" uuid="${response.uuid}" class="mr-3 hapus_replyed">Hapus</span>
+                                <strong class="me-1">${titleCase(replyerName)}</strong> 
+                            </p>
+                            <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${currentDate()} &nbsp; ${currentTime()}</small>
+                        </div>
+                        <hr class="text-dark my-1">
+                        <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${replyMessage}</p>
+                    </div>
+                </div>`;
+                $(replyElement).hide().appendTo(formPlace).delay(500).slideDown(500)
+            }
+        });
     }
 });
 
