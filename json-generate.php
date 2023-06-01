@@ -40,11 +40,6 @@
         // jika tidak ada nilai
         $arr[] = (object)$obj;
         $generate = file_put_contents('json/message.json', json_encode($arr));
-        if($generate) {
-            echo "success!";
-        }else{
-            echo "failed!";
-        }
     }   
 
     

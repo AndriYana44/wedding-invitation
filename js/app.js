@@ -229,7 +229,7 @@ setInterval(function() {
             });
         }
     });
-}, 500);
+}, 1000);
 
 // cek jika ada balasan baru
 setInterval(function() {
@@ -263,7 +263,7 @@ setInterval(function() {
             });
         }
     });
-}, 500);
+}, 1000);
 
 // masukan semua ucapan
 $.getJSON('json/message.json', (data) => {
