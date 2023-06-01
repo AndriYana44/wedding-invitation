@@ -204,7 +204,7 @@ const renderCardReply = data => {
 // cek jika ada pesan baru
 setInterval(function() {
     const UUID_ARRAY = [];
-    $.getJSON('./json/message.json', data => {
+    $.getJSON('https://bestmarried.my.id/json/message.json', data => {
         // push data ke array
         $.each(data, (i, v) => {
             UUID_ARRAY.push(v.uuid);
@@ -234,7 +234,7 @@ setInterval(function() {
 // cek jika ada balasan baru
 setInterval(function() {
     const UUID_ARRAY = [];
-    $.getJSON('./json/reply.json', data => {
+    $.getJSON('https://bestmarried.my.id/json/reply.json', data => {
         $.each(data, (i, v) => {
             UUID_ARRAY.push(v.uuid);
         }); 
@@ -266,7 +266,7 @@ setInterval(function() {
 }, 500);
 
 // masukan semua ucapan
-$.getJSON('json/message.json', (data) => {
+$.getJSON('https://bestmarried.my.id/json/message.json', (data) => {
     $.each(data, function(i,v) {
         let ucapan = renderCard(v);
         $('#daftarucapan').append(ucapan);
@@ -274,7 +274,7 @@ $.getJSON('json/message.json', (data) => {
 });
     
 // masukan semua balasan
-$.getJSON('./json/reply.json', (data) => {
+$.getJSON('https://bestmarried.my.id/json/reply.json', (data) => {
     $.each($('.list-ucapan'), function(i,vE) {
         $.each(data, function(i,vD) {
             if($(vE).attr('uuid') == vD.uuid_pesan) {
@@ -308,14 +308,14 @@ KIRIM_BTN.addEventListener('click', (e) => {
 
     $.ajax({
         type: "POST",
-        url: "json-generate.php",
+        url: "https://bestmarried.my.id/json-generate.php",
         data: {
             nama: name, 
             kehadiran: kehadiran, 
             ucapan: ucapan
         },
         success: function(res) {
-            $.getJSON('json/message.json', (data) => {
+            $.getJSON('https://bestmarried.my.id/json/message.json', (data) => {
                 let datalast = data[data.length - 1];
                 let ucapan = renderCard(datalast);
                 $('#daftarucapan').prepend(ucapan);
@@ -363,7 +363,7 @@ $(document).on('click', '#balas', function(e) {
 
         $.ajax({
             type: 'POST',
-            url: 'json-reply-generate.php',
+            url: 'https://bestmarried.my.id/json-reply-generate.php',
             data: {
                 uuid_pesan: uuid_pesan,
                 replyerName: replyerName,
