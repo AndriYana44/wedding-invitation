@@ -36,12 +36,12 @@
         array_push($data, $obj);
         $json = json_encode($data);
         $generate = file_put_contents('json/message.json', $json);
+        echo $generate;
     }else {
         // jika tidak ada nilai
         $arr[] = (object)$obj;
         $generate = file_put_contents('json/message.json', json_encode($arr));
     }   
 
-    echo json_encode($obj);
     
     
