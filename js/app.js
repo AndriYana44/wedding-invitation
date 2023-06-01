@@ -315,6 +315,7 @@ KIRIM_BTN.addEventListener('click', (e) => {
             ucapan: ucapan
         },
         success: function(res) {
+            console.log(res);
             $.getJSON('/json/message.json', (data) => {
                 let datalast = data[data.length - 1];
                 let ucapan = renderCard(datalast);
