@@ -308,15 +308,14 @@ KIRIM_BTN.addEventListener('click', (e) => {
 
     $.ajax({
         type: "POST",
-        url: "./json-generate.php",
+        url: "json-generate.php",
         data: {
             nama: name, 
             kehadiran: kehadiran, 
             ucapan: ucapan
         },
         success: function(res) {
-            console.log(res);
-            $.getJSON('/json/message.json', (data) => {
+            $.getJSON('json/message.json', (data) => {
                 let datalast = data[data.length - 1];
                 let ucapan = renderCard(datalast);
                 $('#daftarucapan').prepend(ucapan);
