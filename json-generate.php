@@ -36,7 +36,6 @@
         array_push($data, $obj);
         $json = json_encode($data);
         $generate = file_put_contents('json/message.json', $json);
-        echo 'oke';
     }else {
         // jika tidak ada nilai
         $arr[] = (object)$obj;
