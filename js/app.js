@@ -179,7 +179,8 @@ const renderCard = (data) => {
 const renderCardReply = data => {
     let to  = getUrlParameter('to');
     const DIV = document.createElement('div');
-    DIV.classList.add('my-3');
+    DIV.classList.add('my-3', 'list-reply');
+    DIV.setAttribute('uuid', data.uuid);
     let node = `
         <div class="card-body bg-light shadow p-3 m-0 rounded-4">
         <div class="d-flex flex-wrap justify-content-between align-items-center">
@@ -200,22 +201,24 @@ const renderCardReply = data => {
     return DIV;
 }
 
-
+// cek jika ada pesan baru
 setInterval(function() {
     const UUID_ARRAY = [];
     $.getJSON('./json/message.json', data => {
+        // push data ke array
         $.each(data, (i, v) => {
             UUID_ARRAY.push(v.uuid);
         });        
-        
+        // cek apakah ada pesan yang belum di display
         $.each($('.list-ucapan'), (i, v) => {
             const index = UUID_ARRAY.indexOf($(v).attr('uuid'));
             if(index > -1) {
                 UUID_ARRAY.splice(index, 1);
             }
         });
-        
+
         if(UUID_ARRAY.length > 0) {
+            // masukan pesan yang belum di display
             $.each(data, (i, d) => {
                 $.each(UUID_ARRAY, (i, v) => {
                     if(d.uuid == v) {
@@ -226,7 +229,41 @@ setInterval(function() {
             });
         }
     });
-}, 300);
+}, 500);
+
+// cek jika ada balasan baru
+setInterval(function() {
+    const UUID_ARRAY = [];
+    $.getJSON('./json/reply.json', data => {
+        $.each(data, (i, v) => {
+            UUID_ARRAY.push(v.uuid);
+        }); 
+
+        $.each($('.list-reply'), (i, v) => {
+            const index = UUID_ARRAY.indexOf($(v).attr('uuid'));
+            if(index > -1) {
+                UUID_ARRAY.splice(index, 1);
+            }
+        });
+
+        if(UUID_ARRAY.length > 0) {
+            // masukan pesan yang belum di display
+            $.each(data, (i, d) => {
+                $.each(UUID_ARRAY, (i, v) => {
+                    if(d.uuid == v) {
+                        $.each($('.list-ucapan'), function(i, el) {
+                            if($(el).attr('uuid') == d.uuid_pesan) {
+                                let reply = renderCardReply(d);
+                                let element = $(el).find('.formbalasan');
+                                $(reply).hide().appendTo(element).slideDown(500);
+                            }
+                        });
+                    }
+                });
+            });
+        }
+    });
+}, 500);
 
 // masukan semua ucapan
 $.getJSON('json/message.json', (data) => {
@@ -331,24 +368,6 @@ $(document).on('click', '#balas', function(e) {
                 uuid_pesan: uuid_pesan,
                 replyerName: replyerName,
                 replyMessage: replyMessage
-            },
-            success: function(res) {
-                let response = $.parseJSON(res);
-                let replyElement = `
-                <div class="my-3">
-                    <div class="card-body bg-light shadow p-3 m-0 rounded-4">
-                        <div class="d-flex flex-wrap justify-content-between align-items-center">
-                            <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
-                                <span id="remove_replyed" uuid="${response.uuid}" class="mr-3 hapus_replyed">Hapus</span>
-                                <strong class="me-1">${titleCase(replyerName)}</strong> 
-                            </p>
-                            <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${currentDate()} &nbsp; ${currentTime()}</small>
-                        </div>
-                        <hr class="text-dark my-1">
-                        <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${replyMessage}</p>
-                    </div>
-                </div>`;
-                $(replyElement).hide().appendTo(formPlace).delay(500).slideDown(500)
             }
         });
     }
