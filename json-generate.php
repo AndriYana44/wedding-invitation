@@ -28,18 +28,18 @@
     ];
 
     // cek file json apakah ada nilai
-    $jsondata = file_get_contents('/json/message.json');
+    $jsondata = file_get_contents('json/message.json');
     $data = json_decode($jsondata, true);
 
     if(isset($data)) {
         // jika ada nilai
         array_push($data, $obj);
         $json = json_encode($data);
-        $generate = file_put_contents('/json/message.json', $json);
+        $generate = file_put_contents('json/message.json', $json);
     }else {
         // jika tidak ada nilai
         $arr[] = (object)$obj;
-        $generate = file_put_contents('/json/message.json', json_encode($arr));
+        $generate = file_put_contents('json/message.json', json_encode($arr));
     }   
 
     echo json_encode($obj);
