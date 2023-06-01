@@ -40,5 +40,6 @@
         // jika tidak ada nilai
         $obj[] = (object)$array;
         $generate = file_put_contents('json/reply.json', json_encode($obj));
-        echo json_encode($array);
     } 
+
+    echo json_encode($array);

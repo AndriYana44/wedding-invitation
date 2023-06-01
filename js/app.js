@@ -204,7 +204,7 @@ const renderCardReply = data => {
 // cek jika ada pesan baru
 setInterval(function() {
     const UUID_ARRAY = [];
-    $.getJSON('./json/message.json', data => {
+    $.getJSON('json/message.json', data => {
         // push data ke array
         $.each(data, (i, v) => {
             UUID_ARRAY.push(v.uuid);
@@ -234,7 +234,7 @@ setInterval(function() {
 // cek jika ada balasan baru
 setInterval(function() {
     const UUID_ARRAY = [];
-    $.getJSON('./json/reply.json', data => {
+    $.getJSON('json/reply.json', data => {
         $.each(data, (i, v) => {
             UUID_ARRAY.push(v.uuid);
         }); 
