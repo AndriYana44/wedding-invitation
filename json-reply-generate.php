@@ -2,17 +2,7 @@
     // set timezone
     date_default_timezone_set('Asia/Jakarta');
 
-    function generateRandomString($length = 10) {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[random_int(0, $charactersLength - 1)];
-        }
-        return $randomString;
-    }
-
-    $uuid = generateRandomString(36);
+    $uuid = $_POST['uuid'];
     $uuid_pesan = $_POST['uuid_pesan'];
     $replyerName = $_POST['replyerName'];
     $replyMessage = $_POST['replyMessage'];
@@ -23,7 +13,7 @@
         'uuid_pesan' => $uuid_pesan,
         'nama' => $replyerName,
         'pesan' => $replyMessage,
-        'date' => date('Y-m-d'),
+        'date' => date('Y/m/d'),
         'time' => date('H:i:s')
     ];
 
