@@ -319,6 +319,7 @@ KIRIM_BTN.addEventListener('click', (e) => {
                 let datalast = data[data.length - 1];
                 let ucapan = renderCard(datalast);
                 $('#daftarucapan').prepend(ucapan);
+                console.log(res);
                 console.log(datalast);
 
                 // clear value list
