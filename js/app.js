@@ -223,18 +223,14 @@ setInterval(function() {
         });        
         // cek apakah ada pesan yang belum di display
         $.each($('.list-ucapan'), (i, v) => {
-            UUID_ELEMENT.push($(v).attr('uuid'));
             const index = UUID_ARRAY.indexOf($(v).attr('uuid'));
             if(index > -1) {
                 UUID_ARRAY.splice(index, 1);
             }
         });
 
-
         if(UUID_ARRAY.length > 0) {
-            // masukan pesan yang belum di display
             $.each(data, (i, d) => {
-                const index = UUID_ELEMENT.indexOf(d.uuid);
                 $.each(UUID_ARRAY, (i, v) => {
                     if(d.uuid == v) {
                         let ucapan = renderCard(d);
@@ -244,7 +240,7 @@ setInterval(function() {
             });
         }
     });
-}, 1000);
+}, 3000);
 
 // cek jika ada balasan baru
 setInterval(function() {
@@ -278,7 +274,7 @@ setInterval(function() {
             });
         }
     });
-}, 1000);
+}, 3000);
 
 // masukan semua ucapan
 $.getJSON('json/message.json', (data) => {
