@@ -14,7 +14,7 @@
         'kehadiran' => $present,
         'ucapan' => $message,
         'date' => date('Y/m/d'),
-        'time' => date('H:i:s')
+        'time' => date('H:i')
     ];
 
     // cek file json apakah ada nilai

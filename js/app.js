@@ -23,9 +23,8 @@ function currentTime() {
     let dateTime = new Date();
     let hour = String(dateTime.getHours());
     let minute = String(dateTime.getMinutes());
-    let second = String(dateTime.getSeconds());
     
-    let time = hour + ':' + minute + ':' + second;
+    let time = hour + ':' + minute;
     return time;
 }
 
@@ -357,6 +356,7 @@ function clearFormBalas(){
 }
 
 $(document).on('click', '#balas', function(e) {
+    const uuid = makeid(36);
     let formPlace = $(e.target).siblings('.formbalasan');
     let typingBalasan = formPlace.find('#balasan').val();
     if(typingBalasan == undefined || typingBalasan == '' || typingBalasan == null) {
@@ -377,19 +377,31 @@ $(document).on('click', '#balas', function(e) {
         });
         $(this).html('Kirim');
     }else{
-        let uuid_pesan = $(e.target).attr('uuid');
-        let replyerName = formPlace.find('#namabalasan').val();
-        let replyMessage = formPlace.find('#balasan').val();
+        const uuid_pesan = $(e.target).attr('uuid');
+        const replyerName = formPlace.find('#namabalasan').val();
+        const replyMessage = formPlace.find('#balasan').val();
         clearFormBalas();
 
         $.ajax({
             type: 'POST',
             url: 'json-reply-generate.php',
             data: {
-                uuid: makeid(36),
+                uuid: uuid,
                 uuid_pesan: uuid_pesan,
                 replyerName: replyerName,
                 replyMessage: replyMessage
+            },
+            complete: function() {
+                const data = {
+                    'uuid':uuid,
+                    'uuid_pesan':uuid_pesan,
+                    'nama':replyerName,
+                    'pesan':replyMessage
+                };
+                console.log(data);
+
+                const reply = renderCardReply(data);
+                $(reply).hide().appendTo(formPlace).slideDown(300);
             }
         });
     }
