@@ -15,7 +15,7 @@ function currentDate() {
     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     let yyyy = today.getFullYear();
     
-    today = yyyy + '-' + mm + '-' + dd;
+    today = yyyy + '/' + mm + '/' + dd;
     return today;
 }
 
@@ -44,6 +44,18 @@ const getUrlParameter = function getUrlParameter(sParam) {
     }
     return false;
 };
+
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
 
 const audio = (() => {
     var instance = undefined;
@@ -299,34 +311,41 @@ $(document).on('click', '.hapus_replyed', function(e) {
 const KIRIM_BTN = document.getElementById('kirim');
 KIRIM_BTN.addEventListener('click', (e) => {
     e.preventDefault();
+    const uuid = makeid(36); 
     const _parentEl = $(e.target).closest('.card-body');
 
     // get value list
-    let name = _parentEl.find('input[name=nama]').val();
-    let kehadiran = _parentEl.find('select[name=kehadiran]').find(':selected').val();
-    let ucapan = _parentEl.find('textarea[name=ucapan]').val();
+    const name = _parentEl.find('input[name=nama]').val();
+    const kehadiran = _parentEl.find('select[name=kehadiran]').find(':selected').val();
+    const ucapan = _parentEl.find('textarea[name=ucapan]').val();
 
     $.ajax({
         type: "POST",
         url: "json-generate.php",
         data: {
+            uuid: uuid,
             nama: name, 
             kehadiran: kehadiran, 
             ucapan: ucapan
         },
         complete: function(res) {
-            $.getJSON('json/message.json', (data) => {
-                let datalast = data[data.length - 1];
-                let ucapan = renderCard(datalast);
-                $('#daftarucapan').prepend(ucapan);
-                console.log(res);
-                console.log(datalast);
+            const data = {
+                'uuid':uuid, 
+                'nama':name, 
+                'kehadiran':kehadiran, 
+                'ucapan':ucapan, 
+                'date':currentDate(), 
+                'time':currentTime()
+            }; 
+            const ucapanEl = renderCard(data);
+            $('#daftarucapan').prepend(ucapanEl);
+            console.log(res);
+            console.log(data);
 
-                // clear value list
-                _parentEl.find('input[name=nama]').val('');
-                _parentEl.find('select[name=kehadiran]').find(':selected').removeAttr('selected');
-                _parentEl.find('textarea[name=ucapan]').val('');
-            })
+            // clear value list
+            _parentEl.find('input[name=nama]').val('');
+            _parentEl.find('select[name=kehadiran]').find(':selected').removeAttr('selected');
+            _parentEl.find('textarea[name=ucapan]').val('');
         }
     })
 });
@@ -367,6 +386,7 @@ $(document).on('click', '#balas', function(e) {
             type: 'POST',
             url: 'json-reply-generate.php',
             data: {
+                uuid: makeid(36),
                 uuid_pesan: uuid_pesan,
                 replyerName: replyerName,
                 replyMessage: replyMessage
