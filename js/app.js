@@ -215,6 +215,7 @@ const renderCardReply = data => {
 // cek jika ada pesan baru
 setInterval(function() {
     const UUID_ARRAY = [];
+    const UUID_ELEMENT = [];
     $.getJSON('./json/message.json', data => {
         // push data ke array
         $.each(data, (i, v) => {
@@ -222,15 +223,18 @@ setInterval(function() {
         });        
         // cek apakah ada pesan yang belum di display
         $.each($('.list-ucapan'), (i, v) => {
+            UUID_ELEMENT.push($(v).attr('uuid'));
             const index = UUID_ARRAY.indexOf($(v).attr('uuid'));
             if(index > -1) {
                 UUID_ARRAY.splice(index, 1);
             }
         });
 
+
         if(UUID_ARRAY.length > 0) {
             // masukan pesan yang belum di display
             $.each(data, (i, d) => {
+                const index = UUID_ELEMENT.indexOf(d.uuid);
                 $.each(UUID_ARRAY, (i, v) => {
                     if(d.uuid == v) {
                         let ucapan = renderCard(d);
@@ -240,7 +244,7 @@ setInterval(function() {
             });
         }
     });
-}, 5000);
+}, 1000);
 
 // cek jika ada balasan baru
 setInterval(function() {
@@ -274,7 +278,7 @@ setInterval(function() {
             });
         }
     });
-}, 5000);
+}, 1000);
 
 // masukan semua ucapan
 $.getJSON('json/message.json', (data) => {
@@ -299,7 +303,15 @@ $.getJSON('./json/reply.json', (data) => {
 
 $(document).on('click', '.hapus_pesan', function(e) {
     let uuid = $(this).attr('uuid');
-    console.log(uuid);
+    $.ajax({
+        url: 'json-delete-message.php',
+        type: 'POST',
+        data: {uuid:uuid, tipe:'hapus_pesan'},
+        success: function(res) {
+            console.log(res);
+            $(e.target).closest('.list-ucapan').remove();
+        }
+    })
 });
 
 $(document).on('click', '.hapus_replyed', function(e) {
@@ -503,16 +515,19 @@ const pagination = (() => {
 window.addEventListener('load', () => {
     let modal = new bootstrap.Modal('#exampleModal');
     let name = (new URLSearchParams(window.location.search)).get('to') ?? '';
+    let to = getUrlParameter('to');
 
     if (name.length == 0) {
         document.getElementById('namatamu').remove();
     } else {
         let div = document.createElement('div');
         div.classList.add('m-2');
-        div.innerHTML = `
-        <p class="mt-0 mb-1 mx-0 p-0 text-light">Kepada Yth Bapak/Ibu/Saudara/i</p>
-        <h2 class="text-light">${escapeHtml(name)}</h2>
-        `;
+        let el = '';
+        if(to.toLowerCase() != 'owner') {
+            el += `<p class="mt-0 mb-1 mx-0 p-0 text-light">Kepada Yth Bapak/Ibu/Saudara/i</p>`;
+        }
+        el += `<h2 class="text-light">${escapeHtml(name)}</h2>`;
+        div.innerHTML = el;
 
         document.getElementById('formnama').value = name;
         document.getElementById('namatamu').appendChild(div);

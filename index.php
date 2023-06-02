@@ -69,9 +69,9 @@
                         <img src="./assets/images/bg.jpeg" alt="bg">
                     </div>
                 </div>
-                <h1 class="font-estetik my-4" style="font-size: 3rem;">Wahyu & Riski</h1>
-                <h4>Rabu, 15 Maret 2023</h4>
-                <a class="btn btn-outline-light btn-sm shadow rounded-pill px-3 my-1" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The%20Wedding%20of%20Wahyu%20and%20Riski&details=The%20Wedding%20of%20Wahyu%20and%20Riski%20%7C%2015%20Maret%202023%20%7C%20RT%2010%20RW%2002,%20Desa%20Pajerukan,%20Kec.%20Kalibagor,%20Kab.%20Banyumas,%20Jawa%20Tengah%2053191%20%7C%2010.00%20-%2011.00%20WIB&dates=20230315T100000/20230315T110000&location=https://goo.gl/maps/ALZR6FJZU3kxVwN86">
+                <h4 class="my-4" style="font-size: 24px;">Agus Priatno S, Kom <br> & <br> Laras Agustiani Sopandi S, Si</h1>
+                <h4>Sabtu, 29 Juli 2023</h4>
+                <a class="btn btn-outline-light btn-sm shadow rounded-pill px-3 my-1" target="_blank" href="https://calendar.google.com/calendar/u/0/r/eventedit/MDB0NmVwNjNha20zaTQ4ajU2OGI2b2pudHMgYW5kcmkueWFuYTM0OUBt">
                     <i class="fa-solid fa-calendar-check me-2"></i>Save The Date
                 </a>
             </div>
@@ -96,9 +96,9 @@
                         <div class="cropper border border-3 border-light shadow my-4 mx-auto">
                             <img src="assets/images/cowo.png" alt="bg">
                         </div>
-                        <h1 class="font-estetik" style="font-size: 3rem;">Wahyu Siapa</h1>
+                        <h1 class="font-estetik" style="font-size: 2rem;">Agus Priatno S, Kom</h1>
                         <h5 class="mt-3 mb-0">Putra</h5>
-                        <p class="mb-0">Bapak ... & Ibu ...</p>
+                        <p class="mb-0">Bapak Basri S,PD & Ibu (Alm) Kartiningsih</p>
                     </div>
 
                     <h1 class="font-estetik my-4" style="font-size: 4rem;">&</h1>
@@ -107,9 +107,9 @@
                         <div class="cropper border border-3 border-light shadow my-4 mx-auto">
                             <img src="assets/images/cewe.png" alt="bg">
                         </div>
-                        <h1 class="font-estetik" style="font-size: 3rem;">Riski Siapa</h1>
+                        <h1 class="font-estetik" style="font-size: 2rem;">Laras Agustiani Sopandi S, Si</h1>
                         <h5 class="mt-3 mb-0">Putri</h5>
-                        <p class="mb-0">Bapak ... & Ibu ...</p>
+                        <p class="mb-0">Bapak Usman Sopandi S, H M, H & Ibu Mulya Lesmana</p>
                     </div>
                 </div>
             </div>
@@ -166,21 +166,21 @@
                     <div class="overflow-x-hidden">
                         <div class="py-2" data-aos="fade-left" data-aos-duration="1500">
                             <h1 class="font-estetik" style="font-size: 2rem;">Akad</h1>
-                            <p>Pukul 10.00 WIB - Selesai</p>
+                            <p>Pukul 08.00 WIB - Selesai</p>
                         </div>
 
                         <div class="py-2" data-aos="fade-right" data-aos-duration="1500">
                             <h1 class="font-estetik" style="font-size: 2rem;">Resepsi</h1>
-                            <p>Pukul 13.00 WIB - Selesai</p>
+                            <p>Pukul 10.00 WIB - Selesai</p>
                         </div>
                     </div>
 
                     <div class="py-2" data-aos="fade-up" data-aos-duration="1500">
-                        <a href="https://goo.gl/maps/ALZR6FJZU3kxVwN86" target="_blank" class="btn btn-outline-light btn-sm rounded-pill shadow-sm mb-2 px-3">
+                        <a href="https://goo.gl/maps/bkszrmTEFj2Bq62ZA" target="_blank" class="btn btn-outline-light btn-sm rounded-pill shadow-sm mb-2 px-3">
                             <i class="fa-solid fa-map-location-dot me-2"></i>Lihat Google Maps
                         </a>
                         <p class="mb-0 mt-1 mx-1 pb-4" style="font-size: 0.9rem;">
-                            RT 10 RW 02, Desa Pajerukan, Kec. Kalibagor, Kab. Banyumas, Jawa Tengah 53191
+                            Jl. Kali Jaya No.H1, RW.7, Telagamurni, Kec. Cikarang Bar., Kabupaten Bekasi, Jawa Barat 17530
                         </p>
                     </div>
                 </div>
@@ -272,23 +272,34 @@
                     <div class="overflow-x-hidden">
                         <div class="row justify-content-center">
                             <div class="col-12 card-body border rounded-4 shadow p-3 m-3" style="max-width: 25rem;" data-aos="fade-down" data-aos-duration="1500">
-                                <img src="https://upload.wikimedia.org/wikipedia/id/thumb/5/55/BNI_logo.svg/1200px-BNI_logo.svg.png" class="img-fluid rounded" width="150" alt="bni">
+                                <img src="assets/images/BCA.png" class="img-fluid rounded" width="150" alt="bni">
                                 <p class="card-text mt-3 mb-0" style="font-size: 0.9rem;">
-                                    No. Rekening 123456789
+                                    No. Rekening 0201548143
                                 </p>
                                 <p class="card-text" style="font-size: 0.9rem;">
-                                    a.n Lorem ipsum dolor
+                                    a.n Agus Priatno
                                 </p>
                                 <button class="btn btn-light btn-sm rounded-4" data-nomer="123456789" onclick="salin(this)">Salin No. Rekening</button>
                             </div>
 
                             <div class="col-12 card-body border rounded-4 shadow p-3 m-3" style="max-width: 25rem;" data-aos="fade-down" data-aos-duration="1500">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/BANK_BRI_logo.svg/2560px-BANK_BRI_logo.svg.png" class="img-fluid rounded" width="150" alt="bri">
+                                <img src="assets/images/MANDIRI.png" class="img-fluid rounded" width="150" alt="bri">
                                 <p class="card-text mt-3 mb-0" style="font-size: 0.9rem;">
-                                    No. Rekening 123456789
+                                    No. Rekening 1140026262363
                                 </p>
                                 <p class="card-text" style="font-size: 0.9rem;">
-                                    a.n Lorem ipsum dolor
+                                    a.n Agus Priatno
+                                </p>
+                                <button class="btn btn-light btn-sm rounded-4" data-nomer="123456789" onclick="salin(this)">Salin No. Rekening</button>
+                            </div>
+
+                            <div class="col-12 card-body border rounded-4 shadow p-3 m-3" style="max-width: 25rem;" data-aos="fade-down" data-aos-duration="1500">
+                                <img src="assets/images/BSI.png" class="img-fluid rounded" width="150" alt="bri">
+                                <p class="card-text mt-3 mb-0" style="font-size: 0.9rem;">
+                                    No. Rekening 7209429483
+                                </p>
+                                <p class="card-text" style="font-size: 0.9rem;">
+                                    a.n Agus Priatno
                                 </p>
                                 <button class="btn btn-light btn-sm rounded-4" data-nomer="123456789" onclick="salin(this)">Salin No. Rekening</button>
                             </div>
@@ -393,7 +404,7 @@
                         <div class="cropper border border-3 border-light shadow mb-4 mx-auto">
                             <img src="assets/images/bg.jpeg" alt="bg">
                         </div>
-                        <h1 class="font-estetik my-4" style="font-size: 2.5rem;">Wahyu & Riski</h1>
+                        <h1 class="font-estetik my-4" style="font-size: 2rem;">Agus Priatno S, Kom <br> & <br> Laras Agustiani Sopandi S, Si</h1>
                         <div id="namatamu"></div>
                         <button type="button" class="btn btn-light shadow rounded-4 mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="buka()">
                             <i class="fa-solid fa-envelope-open me-2"></i>Buka Undangan
