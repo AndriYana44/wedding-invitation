@@ -240,7 +240,7 @@ setInterval(function() {
             });
         }
     });
-}, 3000);
+}, 5000);
 
 // cek jika ada balasan baru
 setInterval(function() {
@@ -274,7 +274,7 @@ setInterval(function() {
             });
         }
     });
-}, 3000);
+}, 5000);
 
 // masukan semua ucapan
 $.getJSON('json/message.json', (data) => {
