@@ -373,18 +373,6 @@
                     </p>
                     <h1 class="font-estetik" data-aos="fade-up" data-aos-duration="2000">Wassalamualaikum Warahmatullahi Wabarakatuh</h1>
                     <hr class="mt-3 mb-2">
-                    <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                        <div class="col-auto">
-                            <small class="text-light">
-                                Build with<i class="fa-solid fa-heart mx-1"></i>Dewanakl
-                            </small>
-                        </div>
-                        <div class="col-auto">
-                            <small>
-                                <i class="fa-brands fa-github me-1"></i><a target="_blank" href="https://github.com/dewanakl/undangan">dewanakl</a>
-                            </small>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -229,7 +229,7 @@ setInterval(function() {
             });
         }
     });
-}, 500);
+}, 5000);
 
 // cek jika ada balasan baru
 setInterval(function() {
@@ -263,7 +263,7 @@ setInterval(function() {
             });
         }
     });
-}, 500);
+}, 5000);
 
 // masukan semua ucapan
 $.getJSON('json/message.json', (data) => {
@@ -314,12 +314,12 @@ KIRIM_BTN.addEventListener('click', (e) => {
             kehadiran: kehadiran, 
             ucapan: ucapan
         },
-        success: function(res) {
-            console.log(res);
+        complete: function(res) {
             $.getJSON('json/message.json', (data) => {
                 let datalast = data[data.length - 1];
                 let ucapan = renderCard(datalast);
                 $('#daftarucapan').prepend(ucapan);
+                console.log(datalast);
 
                 // clear value list
                 _parentEl.find('input[name=nama]').val('');
