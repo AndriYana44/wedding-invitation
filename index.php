@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Undangan Pernikahan Wahyu & Riski</title>
-    <meta name="title" content="Undangan Pernikahan Wahyu & Riski">
-    <meta name="description" content="Website Undangan Pernikahan Wahyu & Riski Secara Online">
+    <title>Undangan Pernikahan Agus & Laras</title>
+    <meta name="title" content="Undangan Pernikahan Agus & Laras">
+    <meta name="description" content="Website Undangan Pernikahan Agus & Laras Secara Online">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192x192.png">
     <meta name="theme-color" content="#212529">
     <meta name="color-scheme" content="dark">
@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
 </head>
 
 <body data-email="user@example.com" data-password="12345678" data-url="https://undangan-api-gules.vercel.app">
@@ -66,10 +67,10 @@
                 <h1 class="font-estetik my-4" style="font-size: 2.2rem;">Undangan Pernikahan</h1>
                 <div class="py-4">
                     <div class="cropper border border-3 border-light shadow mx-auto">
-                        <img src="./assets/images/bg.jpeg" alt="bg">
+                        <img src="images/mempelai/gambar_masuk.jpg" alt="bg">
                     </div>
                 </div>
-                <h4 class="my-4" style="font-size: 24px;">Agus Priatno S, Kom <br> & <br> Laras Agustiani Sopandi S, Si</h1>
+                <h4 class="my-4 top-name" style="font-size: 3rem;">Agus & Laras</h1>
                 <h4>Sabtu, 29 Juli 2023</h4>
                 <a class="btn btn-outline-light btn-sm shadow rounded-pill px-3 my-1" target="_blank" href="https://calendar.google.com/calendar/u/0/r/eventedit/MDB0NmVwNjNha20zaTQ4ajU2OGI2b2pudHMgYW5kcmkueWFuYTM0OUBt">
                     <i class="fa-solid fa-calendar-check me-2"></i>Save The Date
@@ -77,50 +78,7 @@
             </div>
         </section>
 
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#111111" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,165.3C672,160,768,96,864,96C960,96,1056,160,1152,154.7C1248,149,1344,75,1392,37.3L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-            </path>
-        </svg>
-
-        <section style="background-color: #111111 !important; margin-top: -5px; margin-bottom: -5px;" id="mempelai">
-            <div class="text-center">
-                <h1 class="font-estetik py-4 px-2">Assalamualaikum Warahmatullahi Wabarakatuh</h1>
-
-                <p class="pb-3 px-3">
-                    Tanpa mengurangi rasa hormat. Kami mengundang Bapak/Ibu/Saudara/i serta kerabat
-                    sekalian untuk menghadiri acara pernikahan kami:
-                </p>
-
-                <div class="overflow-x-hidden">
-                    <div data-aos="fade-right" data-aos-duration="2000">
-                        <div class="cropper border border-3 border-light shadow my-4 mx-auto">
-                            <img src="assets/images/cowo.png" alt="bg">
-                        </div>
-                        <h1 class="font-estetik" style="font-size: 2rem;">Agus Priatno S, Kom</h1>
-                        <h5 class="mt-3 mb-0">Putra</h5>
-                        <p class="mb-0">Bapak Basri S,PD & Ibu (Alm) Kartiningsih</p>
-                    </div>
-
-                    <h1 class="font-estetik my-4" style="font-size: 4rem;">&</h1>
-
-                    <div data-aos="fade-left" data-aos-duration="2000">
-                        <div class="cropper border border-3 border-light shadow my-4 mx-auto">
-                            <img src="assets/images/cewe.png" alt="bg">
-                        </div>
-                        <h1 class="font-estetik" style="font-size: 2rem;">Laras Agustiani Sopandi S, Si</h1>
-                        <h5 class="mt-3 mb-0">Putri</h5>
-                        <p class="mb-0">Bapak Usman Sopandi S, H M, H & Ibu Mulya Lesmana</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#111111" fill-opacity="1" d="M0,192L40,181.3C80,171,160,149,240,149.3C320,149,400,171,480,165.3C560,160,640,128,720,128C800,128,880,160,960,186.7C1040,213,1120,235,1200,218.7C1280,203,1360,149,1400,122.7L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z">
-            </path>
-        </svg>
-
-        <div class="container">
+        <div class="container mt-4">
             <div class="text-center">
                 <p style="font-size: 0.9rem;" class="px-2" data-aos="fade-up" data-aos-duration="1500">
                     Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari
@@ -136,6 +94,39 @@
             <path fill="#111111" fill-opacity="1" d="M0,96L30,106.7C60,117,120,139,180,154.7C240,171,300,181,360,186.7C420,192,480,192,540,181.3C600,171,660,149,720,154.7C780,160,840,192,900,208C960,224,1020,224,1080,208C1140,192,1200,160,1260,138.7C1320,117,1380,107,1410,101.3L1440,96L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
             </path>
         </svg>
+
+        <section style="background-color: #111111 !important; margin-top: -5px; margin-bottom: -5px;" id="mempelai">
+            <div class="text-center">
+                <h1 class="font-estetik py-4 px-2">Assalamualaikum Warahmatullahi Wabarakatuh</h1>
+
+                <p class="pb-3 px-3">
+                    Tanpa mengurangi rasa hormat. Kami mengundang Bapak/Ibu/Saudara/i serta kerabat
+                    sekalian untuk menghadiri acara pernikahan kami:
+                </p>
+
+                <div class="overflow-x-hidden">
+                    <div data-aos="fade-right" data-aos-duration="2000">
+                        <div class="cropper border border-3 border-light shadow my-4 mx-auto">
+                            <img src="images/mempelai/cowo.jpg" alt="bg">
+                        </div>
+                        <h1 class="font-estetik" style="font-size: 2rem;">Agus Priatno, S.Kom.</h1>
+                        <h5 class="mt-3 mb-0">Putra dari :</h5>
+                        <p class="mb-0">Bapak Basri, S.Pd dan Ibu (Alm) Kartiningsi</p>
+                    </div>
+
+                    <h1 class="font-estetik my-4" style="font-size: 4rem;">&</h1>
+
+                    <div data-aos="fade-left" data-aos-duration="2000">
+                        <div class="cropper border border-3 border-light shadow my-4 mx-auto">
+                            <img src="images/mempelai/cewe.jpg" alt="bg">
+                        </div>
+                        <h1 class="font-estetik" style="font-size: 2rem;">Laras Agustiani Sopandi S, Si</h1>
+                        <h5 class="mt-3 mb-0">Putri dari :</h5>
+                        <p class="mb-0">Bapak Usman Sopandi, S.H.,M.H. dan Ibu Mulya Lesmana</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section style="background-color: #111111 !important; margin-top: -5px; margin-bottom: -5px;" id="tanggal">
             <div class="container">
@@ -180,7 +171,7 @@
                             <i class="fa-solid fa-map-location-dot me-2"></i>Lihat Google Maps
                         </a>
                         <p class="mb-0 mt-1 mx-1 pb-4" style="font-size: 0.9rem;">
-                            Jl. Kali Jaya No.H1, RW.7, Telagamurni, Kec. Cikarang Bar., Kabupaten Bekasi, Jawa Barat 17530
+                            Perum Telaga Harapan, Blok H1 No.6, RT.9/RW.12, Telagamurni, Cikarang Barat
                         </p>
                     </div>
                 </div>
@@ -197,17 +188,21 @@
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
                         </div>
 
                         <div class="carousel-inner rounded-4">
                             <div class="carousel-item active">
-                                <img src="https://picsum.photos/1280/720?random=1" class="d-block w-100">
+                                <img src="images/mempelai/LRAS0075 (Galeri).jpg" class="d-block w-100">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://picsum.photos/1280/720?random=2" class="d-block w-100">
+                                <img src="images/mempelai/LRAS0082 (Galeri).jpg" class="d-block w-100">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://picsum.photos/1280/720?random=3" class="d-block w-100">
+                                <img src="images/mempelai/LRAS0116 (Galeri).jpg" class="d-block w-100">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/mempelai/LRAS0164 (galeri).jpg" class="d-block w-100">
                             </div>
                         </div>
 
@@ -219,37 +214,6 @@
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
-
-                    </div>
-
-                    <div id="carousel2" data-aos="fade-up" data-aos-duration="1500" class="carousel slide mt-4" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carousel2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carousel2" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carousel2" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-
-                        <div class="carousel-inner rounded-4">
-                            <div class="carousel-item active">
-                                <img src="https://picsum.photos/1280/720?random=4" class="d-block w-100">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://picsum.photos/1280/720?random=5" class="d-block w-100">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://picsum.photos/1280/720?random=6" class="d-block w-100">
-                            </div>
-                        </div>
-
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-
                     </div>
                 </div>
             </div>
@@ -279,7 +243,7 @@
                                 <p class="card-text" style="font-size: 0.9rem;">
                                     a.n Agus Priatno
                                 </p>
-                                <button class="btn btn-light btn-sm rounded-4" data-nomer="123456789" onclick="salin(this)">Salin No. Rekening</button>
+                                <button class="btn btn-light btn-sm rounded-4" data-nomer="0201548143" onclick="salin(this)">Salin No. Rekening</button>
                             </div>
 
                             <div class="col-12 card-body border rounded-4 shadow p-3 m-3" style="max-width: 25rem;" data-aos="fade-down" data-aos-duration="1500">
@@ -290,7 +254,7 @@
                                 <p class="card-text" style="font-size: 0.9rem;">
                                     a.n Agus Priatno
                                 </p>
-                                <button class="btn btn-light btn-sm rounded-4" data-nomer="123456789" onclick="salin(this)">Salin No. Rekening</button>
+                                <button class="btn btn-light btn-sm rounded-4" data-nomer="1140026262363" onclick="salin(this)">Salin No. Rekening</button>
                             </div>
 
                             <div class="col-12 card-body border rounded-4 shadow p-3 m-3" style="max-width: 25rem;" data-aos="fade-down" data-aos-duration="1500">
@@ -301,8 +265,12 @@
                                 <p class="card-text" style="font-size: 0.9rem;">
                                     a.n Agus Priatno
                                 </p>
-                                <button class="btn btn-light btn-sm rounded-4" data-nomer="123456789" onclick="salin(this)">Salin No. Rekening</button>
+                                <button class="btn btn-light btn-sm rounded-4" data-nomer="7209429483" onclick="salin(this)">Salin No. Rekening</button>
                             </div>
+                            
+                            <a id="generate-link" href="generate-link/generate.php" class="col-12 card-body border rounded-4 shadow p-3 m-3" style="max-width: 25rem;" data-aos="fade-down" data-aos-duration="1500" style="text-decoration: none;" target="_blank">
+                                <span>Generate Link undangan</span>
+                            <a>
                         </div>
                     </div>
                 </div>
@@ -397,18 +365,29 @@
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-fullscreen m-0">
-            <div class="modal-content m-0 p-0">
-                <div class="d-flex justify-content-center align-items-center" style="height: 100vh !important;">
-                    <div class="text-center">
-                        <h1 class="font-estetik mb-4" style="font-size: 2.2rem;">The Wedding Of</h1>
-                        <div class="cropper border border-3 border-light shadow mb-4 mx-auto">
-                            <img src="assets/images/bg.jpeg" alt="bg">
+            <div class="modal-content m-0 p-0 cover">
+                <div class="overlay">
+                    <div class="d-flex justify-content-center align-items-center" style="height:100% !important;position:relative;">
+                        <div class="text-center  cover-text">
+                            <div class="text-rotate">
+                                <h1 class="mb-2 wedding-cover" style="font-size: 2.5rem; font-weight:900;">The Wedding Of</h1>
+                                <h1 class="mb-3 nama-mempelai">Agus & Laras</h1>
+                            </div>
+                            <div class="double-line"></div>
+                            <div id="namatamu"></div>
+                            <div class="double-line"></div>
+                            <small class="mb-3 ml-4 text-white date-wrapper">- 29/07/2023 -</small>
+                            <button type="button" class="btn btn-light shadow rounded-4 mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="buka()">
+                                <i class="fa-solid fa-envelope-open me-2"></i>Buka Undangan
+                            </button>
+
+                            <div class="heart-divider">
+                                <span class="white-line" style="width:10px"></span>
+                                <i class="fa fa-heart pink-heart"></i>
+                                <i class="fa fa-heart white-heart"></i>
+                                <span class="white-line" style="width:10px"></span>
+                            </div>
                         </div>
-                        <h1 class="font-estetik my-4" style="font-size: 2rem;">Agus Priatno S, Kom <br> & <br> Laras Agustiani Sopandi S, Si</h1>
-                        <div id="namatamu"></div>
-                        <button type="button" class="btn btn-light shadow rounded-4 mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="buka()">
-                            <i class="fa-solid fa-envelope-open me-2"></i>Buka Undangan
-                        </button>
                     </div>
                 </div>
             </div>

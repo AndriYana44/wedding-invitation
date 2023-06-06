@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+@font-face {
+    font-family: 'Veronica';
+    src: local('Veronica Script'), local('Veronica-Script'),
+        url('../fonts/Veronica-Script/Veronica-Script.woff2') format('woff2'),
+        url('../fonts/Veronica-Script/Veronica-Script.woff') format('woff'),
+        url('../fonts/Veronica-Script/Veronica-Script.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *::-webkit-scrollbar {
     width: 0.875rem;
 }
@@ -108,4 +123,95 @@ body {
 #remove_replyed:hover {
     background-color: #dc3545;
     color: #FFF;
+}
+
+.double-line {
+    /* width: 150px; */
+    height: 3px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.nama-mempelai {
+    font-family: Veronica;
+    font-size: 2.3rem;
+    color: #FFF;
+    mix-blend-mode: screen;
+}
+
+#namatamu {
+    font-family: Veronica;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #FFF;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+}
+
+.wedding-cover {
+    font-family: Veronica;
+    font-weight: bolder;
+    color: #FFF;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.heart-divider {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.white-line {
+    width: 30px;
+    height: 8px;
+    display: inline-block;
+    border-top: solid 1px #FFF;
+}
+
+.pink-heart {
+    color: #f0394d;
+    font-size: 18px;
+    position: relative;
+    z-index: 3;
+}
+
+.white-heart {
+    color: #FFF;
+    font-size: 18px;
+    margin-left: -10px;
+    position: relative;
+    z-index: 2;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(64, 57, 49, 0.5); /* Warna transparan */
+  }
+.cover {
+    background-image: url('../images/mempelai/Cover1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.cover-text {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 100px;
+}
+
+.date-wrapper {
+    font-family: Caveat;
+}
+
+.top-name {
+    font-family: Veronica;
 }

@@ -94,7 +94,8 @@ const escapeHtml = (unsafe) => {
 };
 
 const salin = (btn) => {
-    navigator.clipboard.writeText(btn.getAttribute('data-nomer'));
+    let norek = btn.getAttribute('data-nomer');
+    navigator.clipboard.writeText(norek);
     let tmp = btn.innerHTML;
     btn.innerHTML = 'Tersalin';
     btn.disabled = true;
@@ -519,10 +520,7 @@ window.addEventListener('load', () => {
         let div = document.createElement('div');
         div.classList.add('m-2');
         let el = '';
-        if(to.toLowerCase() != 'owner') {
-            el += `<p class="mt-0 mb-1 mx-0 p-0 text-light">Kepada Yth Bapak/Ibu/Saudara/i</p>`;
-        }
-        el += `<h2 class="text-light">${escapeHtml(name)}</h2>`;
+        el += `<h2 class="text-light py-2" style="font-size:14px">*** ${escapeHtml(name)} ***</h2>`;
         div.innerHTML = el;
 
         document.getElementById('formnama').value = name;
@@ -531,3 +529,18 @@ window.addEventListener('load', () => {
 
     modal.show();
 }, false);
+
+function changeImage() {   
+    const BackgroundImg=["images/mempelai/Cover1.jpg",
+        "images/mempelai/Cover2.jpg",
+        "images/mempelai/Cover3.jpg"
+    ];
+    let i = Math.floor((Math.random() * 3));
+    const el = document.querySelector('.cover');
+    el.style.backgroundImage = 'url("' + BackgroundImg[i] + '")';
+}
+window.setInterval(changeImage, 5000);
+
+if(getUrlParameter('to') != 'owner') {
+    $(document).find('#generate-link').remove();
+}
