@@ -539,7 +539,7 @@ function changeImage() {
     const el = document.querySelector('.cover');
     el.style.backgroundImage = 'url("' + BackgroundImg[i] + '")';
 }
-window.setInterval(changeImage, 5000);
+window.setInterval(changeImage, 2000);
 
 if(getUrlParameter('to') != 'owner') {
     $(document).find('#generate-link').remove();

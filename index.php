@@ -22,6 +22,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
 </head>
 
 <body data-email="user@example.com" data-password="12345678" data-url="https://undangan-api-gules.vercel.app">
@@ -64,7 +68,7 @@
 
         <section class="container" id="home">
             <div class="text-center py-4">
-                <h1 class="font-estetik my-4" style="font-size: 2.2rem;">Undangan Pernikahan</h1>
+                <h1 class="head-font my-4">Undangan Pernikahan</h1>
                 <div class="py-4">
                     <div class="cropper border border-3 border-light shadow mx-auto">
                         <img src="images/mempelai/gambar_masuk.jpg" alt="bg">
@@ -97,7 +101,7 @@
 
         <section style="background-color: #111111 !important; margin-top: -5px; margin-bottom: -5px;" id="mempelai">
             <div class="text-center">
-                <h1 class="font-estetik py-4 px-2">Assalamualaikum Warahmatullahi Wabarakatuh</h1>
+                <h1 class="salam py-4 px-2">Assalamu'alaikum Wr. Wb.</h1>
 
                 <p class="pb-3 px-3">
                     Tanpa mengurangi rasa hormat. Kami mengundang Bapak/Ibu/Saudara/i serta kerabat
@@ -109,8 +113,8 @@
                         <div class="cropper border border-3 border-light shadow my-4 mx-auto">
                             <img src="images/mempelai/cowo.jpg" alt="bg">
                         </div>
-                        <h1 class="font-estetik" style="font-size: 2rem;">Agus Priatno, S.Kom.</h1>
-                        <h5 class="mt-3 mb-0">Putra dari :</h5>
+                        <h1 class="female">Agus Priatno, S.Kom.</h1>
+                        <h5 class="mt-3 mb-0" style="font-size: 15px">Putra dari :</h5>
                         <p class="mb-0">Bapak Basri, S.Pd dan Ibu (Alm) Kartiningsi</p>
                     </div>
 
@@ -120,18 +124,24 @@
                         <div class="cropper border border-3 border-light shadow my-4 mx-auto">
                             <img src="images/mempelai/cewe.jpg" alt="bg">
                         </div>
-                        <h1 class="font-estetik" style="font-size: 2rem;">Laras Agustiani Sopandi S, Si</h1>
-                        <h5 class="mt-3 mb-0">Putri dari :</h5>
+                        <h1 class="male">Laras Agustiani Sopandi S, Si</h1>
+                        <h5 class="mt-3 mb-0" style="font-size: 15px">Putri dari :</h5>
                         <p class="mb-0">Bapak Usman Sopandi, S.H.,M.H. dan Ibu Mulya Lesmana</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section style="background-color: #111111 !important; margin-top: -5px; margin-bottom: -5px;" id="tanggal">
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#0099ff" fill-opacity="1" d="M0,256L21.8,229.3C43.6,203,87,149,131,138.7C174.5,128,218,160,262,197.3C305.5,235,349,277,393,261.3C436.4,245,480,171,524,160C567.3,149,611,203,655,202.7C698.2,203,742,149,785,160C829.1,171,873,245,916,266.7C960,288,1004,256,1047,224C1090.9,192,1135,160,1178,176C1221.8,192,1265,256,1309,282.7C1352.7,309,1396,299,1418,293.3L1440,288L1440,320L1418.2,320C1396.4,320,1353,320,1309,320C1265.5,320,1222,320,1178,320C1134.5,320,1091,320,1047,320C1003.6,320,960,320,916,320C872.7,320,829,320,785,320C741.8,320,698,320,655,320C610.9,320,567,320,524,320C480,320,436,320,393,320C349.1,320,305,320,262,320C218.2,320,175,320,131,320C87.3,320,44,320,22,320L0,320Z">
+            </path>
+        </svg>
+        <section style="background-color: #0099ff !important; padding-top: 40px;" id="tanggal">
             <div class="container">
                 <div class="text-center">
-                    <h1 class="font-estetik py-3" style="font-size: 2rem;">Waktu Menuju Acara</h1>
+                    
+                    <h1 class="py-3 courgette" style="font-size: 1.5rem;">Menuju Hari Bahagia</h1>
                     <div class="border rounded-pill shadow py-2 px-4 mx-2 mb-4">
                         <div class="row justify-content-center" data-waktu="2023-07-29 08:00:00" id="tampilan-waktu">
                             <div class="col-3 p-1">
@@ -148,7 +158,19 @@
                             </div>
                         </div>
                     </div>
+                    
+                </div>
+            </div>
+        </section>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#0099ff" fill-opacity="1" d="M0,256L21.8,256C43.6,256,87,256,131,240C174.5,224,218,192,262,192C305.5,192,349,224,393,202.7C436.4,181,480,107,524,112C567.3,117,611,203,655,224C698.2,245,742,203,785,186.7C829.1,171,873,181,916,181.3C960,181,1004,171,1047,149.3C1090.9,128,1135,96,1178,90.7C1221.8,85,1265,107,1309,133.3C1352.7,160,1396,192,1418,208L1440,224L1440,0L1418.2,0C1396.4,0,1353,0,1309,0C1265.5,0,1222,0,1178,0C1134.5,0,1091,0,1047,0C1003.6,0,960,0,916,0C872.7,0,829,0,785,0C741.8,0,698,0,655,0C610.9,0,567,0,524,0C480,0,436,0,393,0C349.1,0,305,0,262,0C218.2,0,175,0,131,0C87.3,0,44,0,22,0L0,0Z">
+            </path>
+        </svg>
+        
 
+        <section style="background-color: #111111 !important; padding-top: 40px;" id="tanggal">
+            <div class="container">
+                <div class="text-center">
                     <p style="font-size: 0.9rem;" class="mt-4 py-2">
                         Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, insyaAllah kami akan menyelenggarakan
                         acara :
@@ -189,6 +211,8 @@
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
                         </div>
 
                         <div class="carousel-inner rounded-4">
@@ -203,6 +227,12 @@
                             </div>
                             <div class="carousel-item">
                                 <img src="images/mempelai/LRAS0164 (galeri).jpg" class="d-block w-100">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/mempelai/Cover1.jpg" class="d-block w-100">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/mempelai/Cover2.jpg" class="d-block w-100">
                             </div>
                         </div>
 
@@ -370,8 +400,8 @@
                     <div class="d-flex justify-content-center align-items-center" style="height:100% !important;position:relative;">
                         <div class="text-center  cover-text">
                             <div class="text-rotate">
-                                <h1 class="mb-2 wedding-cover" style="font-size: 2.5rem; font-weight:900;">The Wedding Of</h1>
-                                <h1 class="mb-3 nama-mempelai">Agus & Laras</h1>
+                                <h1 class="mb-2 wedding-cover" style="font-weight:900;">The Wedding Of</h1>
+                                <h1  class="mb-3 nama-mempelai" id="nama-mempelai">Agus & Laras</h1>
                             </div>
                             <div class="double-line"></div>
                             <div id="namatamu"></div>

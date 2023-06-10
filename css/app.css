@@ -13,6 +13,8 @@
     font-style: normal;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
 *::-webkit-scrollbar {
     width: 0.875rem;
 }
@@ -132,10 +134,10 @@ body {
     border-bottom: 1px solid #eee;
 }
 
-.nama-mempelai {
-    font-family: Veronica;
+#nama-mempelai {
+    font-family: 'Allura', cursive;
     font-size: 2.3rem;
-    color: #FFF;
+    color: #fff;
     mix-blend-mode: screen;
 }
 
@@ -150,9 +152,11 @@ body {
 }
 
 .wedding-cover {
-    font-family: Veronica;
+    font-family: Courgette;
     font-weight: bolder;
     color: #FFF;
+    letter-spacing: 3px;
+    font-size: 1.5rem;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -214,5 +218,25 @@ body {
 }
 
 .top-name {
-    font-family: Veronica;
+    font-family: Courgette;
+}
+
+.salam {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.head-font {
+    font-family: FiraSans;
+    font-size: 20px;
+}
+
+.male ,.female {
+    font-size: 20px;
+}
+
+.courgette {
+    font-size: Courgette;
+    font-size: 20px;
+    letter-spacing: 2px;
 }
